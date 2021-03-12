@@ -2,12 +2,15 @@ package com.mercurd.corsartreasures;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -43,8 +46,13 @@ public class GameActivity extends AppCompatActivity {
     int interval = 100;
 
     TextView scoreResult;
+    ImageView timeimage;
 
     public int score = 0;
+
+    long animationDuration = 1000;
+
+
 
 
 
@@ -57,6 +65,7 @@ public class GameActivity extends AppCompatActivity {
 
         scoreResult = findViewById(R.id.score);
         time_txt = findViewById(R.id.timer);
+        timeimage = findViewById(R.id.time_img);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -73,6 +82,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 time_txt.setText(millisUntilFinished/1000 + " s");
+
             }
 
             @Override
@@ -99,6 +109,9 @@ public class GameActivity extends AppCompatActivity {
                     candyToBeDragged = imageView.getId();
                     candyToBeReplaced = candyToBeDragged -1;
                     candyInterchange();
+
+
+
                 }
 
                 @Override
@@ -109,6 +122,7 @@ public class GameActivity extends AppCompatActivity {
                     candyInterchange();
 
 
+
                 }
 
                 @Override
@@ -117,6 +131,7 @@ public class GameActivity extends AppCompatActivity {
                     candyToBeDragged = imageView.getId();
                     candyToBeReplaced = candyToBeDragged - numberOfBlock;
                     candyInterchange();
+
                 }
 
                 @Override
@@ -125,9 +140,12 @@ public class GameActivity extends AppCompatActivity {
                     candyToBeDragged = imageView.getId();
                     candyToBeReplaced = candyToBeDragged + numberOfBlock;
                     candyInterchange();
+
                 }
             });
         }
+
+
 
 
         mHandler = new Handler();
@@ -159,6 +177,8 @@ public class GameActivity extends AppCompatActivity {
                 }
 
             }
+
+
 
         }
         moveDownCandies();
@@ -201,6 +221,9 @@ public class GameActivity extends AppCompatActivity {
                 checkColumnForTree();
                 moveDownCandies();
 
+
+
+
             }
             finally {
                 mHandler.postDelayed(repeatCheker, interval);
@@ -221,6 +244,8 @@ public class GameActivity extends AppCompatActivity {
         candy.get(candyToBeReplaced).setImageResource(background1);
         candy.get(candyToBeDragged).setTag(background);
         candy.get(candyToBeReplaced).setTag(background1);
+
+
 
     }
 
@@ -282,6 +307,22 @@ public class GameActivity extends AppCompatActivity {
 
             }
         }
+    }
+
+   public void handleAnimation(View view) {
+        //ObjectAnimator animatorX = ObjectAnimator.ofFloat(imageView, "x", 420f);
+        /*ObjectAnimator animatorY = ObjectAnimator.ofFloat(imageView, "y", 420f);
+        animatorY.setDuration(animationDuration);
+
+        //ObjectAnimator alphaAnimation = ObjectAnimator.ofFloat(imageView, View.ALPHA, )
+
+        ObjectAnimator rotateAnimation = ObjectAnimator.ofFloat(timeimage, "rotation" , 0f, 360f);
+        rotateAnimation.setDuration(animationDuration);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(rotateAnimation);
+        animatorSet.start();*/
+
     }
 
 

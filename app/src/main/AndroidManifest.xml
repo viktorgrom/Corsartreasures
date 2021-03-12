@@ -17,10 +17,11 @@
         android:theme="@style/Theme.Corsartreasures"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m">
-
+        tools:targetApi="m"
+        >
+        <activity android:name=".test" />
         <activity
-            android:name="com.mercurd.corsartreasures.SplashActivity"
+            android:name=".SplashActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +30,7 @@
             </intent-filter>
             <intent-filter android:label="Filter">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -46,26 +48,19 @@
                     android:scheme="com.mercurd.corsartreasures" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.mercurd.corsartreasures.StartGame"
+        <activity
+            android:name=".StartGame"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
             </intent-filter>
-
         </activity>
-
-        <activity android:name="com.mercurd.corsartreasures.GameOver"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-
-        </activity>
-
-        <activity android:name="com.mercurd.corsartreasures.GameActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        </activity>
+        <activity
+            android:name=".GameOver"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".GameActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -75,7 +70,7 @@
             android:value="true" />
         <meta-data
             android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT"
-            android:value="true"/>
+            android:value="true" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -84,6 +79,7 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
+
         <meta-data
             android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
             android:value="true" />
@@ -110,9 +106,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT"
             android:value="true" />
-
-
-
     </application>
 
 </manifest>
